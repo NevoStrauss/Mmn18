@@ -6,5 +6,4 @@ public class CustomersDB {
     public CustomersDB(){
         customers = new HashMap<String,Customer>();
     }
-
 }

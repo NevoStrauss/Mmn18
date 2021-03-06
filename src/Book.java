@@ -39,6 +39,12 @@ public class Book {
         isBorrowed=newState;
     }
 
+    public boolean equals(Book other){
+        if (other==null)
+            throw new IllegalArgumentException("ELEMENT IS NUULLLL");
+        return serialNumber.equals(other.serialNumber);
+    }
+
     public String toString(Book book){
         return "["+book.serialNumber+"] ";
     }

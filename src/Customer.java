@@ -36,9 +36,8 @@ public class Customer {
     }
 
     public boolean equals(Customer other){
-        if (other==null){
+        if (other==null)
             throw new IllegalArgumentException("ELEMENT IS NUULLLL");
-        }
         return id.equals(other.id) & lastName.equals(other.lastName);
     }
 
