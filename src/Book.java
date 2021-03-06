@@ -4,6 +4,7 @@ public class Book {
 
     public Book(String serialNumber){
         this.serialNumber = serialNumber;
+        owner = null;
     }
 
     public Book(String serialNumber, Customer owner){
