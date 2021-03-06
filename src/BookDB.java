@@ -1,9 +1,9 @@
 import java.util.HashMap;
 
 public class BookDB {
-    public HashMap<String,Customer> books;
+    public HashMap<String,Book> books;
 
     public BookDB(){
-        books = new HashMap<String,Customer>();
+        books = new HashMap<String,Book>();
     }
 }
