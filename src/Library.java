@@ -10,6 +10,15 @@ public class Library{
         warehouse = new BookDB();
     }
 
+    public CustomersDB getCustomersDB(){
+        return users;
+    }
+
+    public BookDB getBookDB(){
+        return warehouse;
+    }
+
+
     //METHODS
     public void bookBorrow(String id, String serialNumber){
         Book toBorrow = warehouse.books.get(serialNumber);
@@ -54,7 +63,7 @@ public class Library{
             System.out.println("Please return all of your books!!!");
     }
 
-    public LinkedList<Book> loanedBooks(String id){
+    public LinkedList<Book> loanedBooksByCustomer(String id){
         LinkedList<Book> loanedBooks = users.customers.get(id).getLoanedBooks();
         for (Book book:loanedBooks) {
             System.out.println(book.toString(book));
