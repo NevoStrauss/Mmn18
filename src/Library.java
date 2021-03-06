@@ -10,6 +10,7 @@ public class Library{
         warehouse = new BookDB();
     }
 
+    //getters
     public CustomersDB getCustomersDB(){
         return users;
     }
@@ -20,6 +21,8 @@ public class Library{
 
 
     //METHODS
+
+    //This method updates the
     public void bookBorrow(String id, String serialNumber){
         Book toBorrow = warehouse.books.get(serialNumber);
         if(!toBorrow.isBorrowed){ //not borrowed
@@ -82,9 +85,9 @@ public class Library{
     }
 
     public LinkedList<Customer> getMaxloaned(){
-        Integer maxNumber = findMax();
+        Integer maxNumber = findMax(); //maximum books loaned by any of that customers
         LinkedList<Customer> maxOwnerList = maxOwnerList(maxNumber);
-        for (Customer c:maxOwnerList) {
+        for (Customer c:maxOwnerList) { //print all costumer with the highest amount of loaned books
             System.out.println(c.toString(c));
         }
         return maxOwnerList;

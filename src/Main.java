@@ -26,64 +26,41 @@ public class Main {
                 prm3 = scan.next(); // getting the costumer's id number
                 library.addCustomer(prm2, prm3);
             }
-            for (Customer customer:library.getCustomersDB().customers.values()) {
-                System.out.println(customer.toString(customer));
+
+            else if (prm1.equals(REMOVE)){ //the user wants to delete a costumer from the Costumers DataBase
+                prm2 = scan.next(); // getting the costumer's last name
+                prm3 = scan.next(); // getting the costumer's id number
+                library.removeCustomer (prm3);
             }
 
+            //queries
+            else if (prm1.equals(QUERY)) { //the user want to ask a query
+                prm2 = scan.next();
 
-//			else if (prm1.equals(REMOVE){ //the user wants to delete a costumer from the Costumers DataBase
-//                prm2 = scan.next(); // getting the costumer's last name
-//                prm3 = scan.next(); // getting the costumer's id number
-//                costumers.removeCostumer (prm2,prm3);
-//            }
-//
-//			else if (prm1.equals(QUERY)) { //the user want to ask a query
-//                prm2 = scan.next();
-//
-//                if (prm2.charAt(0)>= 48 && prm2.charAt(0)<=57) { //this is a number-> the user wantes to check which books are loaned by a costumer with this id number
-//                    Costumers.loanedBooks(prm2);
-//                }
-//
-//                else if { (prm2.charAt(0)>=65 && prm2.charAt(0)<=90) //this is a letter -> the user wants to check who is the costumer who loaned the book with this number identificator
-//                    Books.loanedBy(prm2);
-//                }
-//
-//				else if (prm2.equals(MAX_BOOKS)){// the user wants to check who are the costumers who are loaning the highest numbers of books, at the moment
-//                    Costumers.maxLoan();
-//                }
-//
-//                else { //the user wants to loan or return a costumer's book
-//                    prm2 = scan.next();
-//                    prm3 = scan.next();
-//                    prm4 = scan.next();
-//
-//				/*Client client = clients.findClient(param2, param1);
-//                Book book = books.findBook(param3);
-//
-//
-//				// if book isn't on the shelf, add it
-//                if (book == null) {
-//                	book = books.addBook(param3);
-//                }
-//
-//				*/// !!!! C H E C K !!!!
-//
-//                    if (prm4.equals(ADD){// the user wants loan a book to this costumer
-//
-//                        costumer.addBook(prm3);
-//                        book.setCostumer(prm2);
-//
-//                    }
-//
-//
-//                }
-//            }
-//
-//
-//        }
-//
-//    }
+                if (prm2.charAt(0)>= 48 && prm2.charAt(0)<=57) { //this is a number-> the user wants to check which books are loaned by a costumer with this id number
+                    library.loanedBooksByCustomer(prm2);
+                }
 
+                else if (prm2.charAt(0)>=65 && prm2.charAt(0)<=90){ //this is a letter -> the user wants to check who is the costumer who loaned the book with this number identificator
+                    library.getCustomerByBook(prm2);
+                }
+
+                else if (prm2.equals(MAX_BOOKS)){// the user wants to check who are the costumers who are loaning the highest numbers of books, at the moment
+                    library.getMaxloaned();
+                }
+
+                else { //the user wants to loan or return a costumer's book
+                    prm2 = scan.next(); // costumer's id
+                    prm3 = scan.next(); // book's serial number
+                    prm4 = scan.next(); //operator: + for loaning, - for returning
+
+                    if (prm4.equals(ADD))// the costumer wants to loan a book
+                        library.bookBorrow(prm2, prm3);
+
+                    else if (prm4.equals(REMOVE)) // the costumer wants to returm a book
+                        library.bookReturn(prm2, prm3);
+                }
+            }
         }
     }
 }
