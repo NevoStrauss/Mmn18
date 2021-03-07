@@ -1,10 +1,10 @@
 import java.util.HashMap;
 
 public class CustomersDB {
-    private HashMap<String,Customer> customers;
+    private final HashMap<String,Customer> customers;
 
     public CustomersDB(){
-        customers = new HashMap<String,Customer>();
+        customers = new HashMap<>();
     }
     public HashMap<String,Customer> getCustomers(){
         return customers;

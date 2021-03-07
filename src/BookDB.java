@@ -1,10 +1,10 @@
 import java.util.HashMap;
 
 public class BookDB {
-    private HashMap<String,Book> books;
+    private final HashMap<String,Book> books;
 
     public BookDB(){
-        books = new HashMap<String,Book>();
+        books = new HashMap<>();
     }
 
     public HashMap<String,Book> getBooks(){
